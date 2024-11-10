@@ -7,7 +7,7 @@ class StickerType(models.Model):
         return self.name
 
 class Sticker(models.Model):
-    code = models.CharField(max_length=20, unique=True)  
+    code = models.CharField(max_length=50, unique=True)  
     sticker_type = models.ForeignKey(StickerType, related_name='stickers', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='core/media')  
     lat = models.FloatField(null=True, blank=True)  # Latitude for geographical location
