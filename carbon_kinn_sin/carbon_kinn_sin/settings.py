@@ -29,17 +29,9 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="*").split(",")
 
-# CORS configuration
-
-CSRF_TRUSTED_ORIGINS = ["https://carbonkinnsinpj-production.up.railway.app/", "http://localhost"]
-
-CORS_ALLOW_ALL_ORIGINS = True
-
-
 # Application definition
 
 INSTALLED_APPS = [
-    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,10 +41,24 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
     'rest_framework_simplejwt',
+    'corsheaders',
     'core',
     'auth_app',
     'contact_app',
     'stickers'
+]
+
+# CORS configuration
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_ORIGINS = [
+    "https://carbon-kinn-sin.vercel.app",
+    "https://carbonkinnsinpj-production.up.railway.app",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://carbonkinnsinpj-production.up.railway.app",
+    "https://carbon-kinn-sin.vercel.app",
 ]
 
 MIDDLEWARE = [
@@ -155,9 +161,7 @@ AUTH_USER_MODEL = 'auth_app.User'
 
 # JWT configuration
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=30),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
-
-
