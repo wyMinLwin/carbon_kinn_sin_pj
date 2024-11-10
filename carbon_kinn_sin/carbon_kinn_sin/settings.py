@@ -29,6 +29,13 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="*").split(",")
 
+# CORS configuration
+
+CSRF_TRUSTED_ORIGINS = ["https://carbonkinnsinpj-production.up.railway.app/", "http://localhost"]
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -152,37 +159,5 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
-# CORS configuration
-
-CORS_ALLOW_CREDENTIALS = True
-
-CORS_ALLOWED_ORIGINS = [
-    "https://carbon-kinn-sin.vercel.app",
-    "https://carbonkinnsinpj-production.up.railway.app",
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://carbonkinnsinpj-production.up.railway.app",
-    "https://carbon-kinn-sin.vercel.app",
-]
-
-CORS_ALLOW_HEADERS = [
-    "authorization",
-    "content-type",
-    "accept",
-    "origin",
-    "user-agent",
-    "x-csrftoken",
-    "x-requested-with",
-]
-
-CORS_ALLOW_METHODS = [
-    "GET",
-    "POST",
-    "PUT",
-    "PATCH",
-    "DELETE",
-    "OPTIONS",
-]
 
 
