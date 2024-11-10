@@ -1,6 +1,7 @@
 import os
 from datetime import timedelta
 from decouple import config
+from corsheaders.defaults import default_headers, default_methods
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -140,6 +141,24 @@ SIMPLE_JWT = {
 
 # CORS configuration
 CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_ORIGINS = [
+    "https://carbon-kinn-sin.vercel.app",
+    "https://carbonkinnsinpj-production.up.railway.app",
+]
+CSRF_TRUSTED_ORIGINS = [
+    "https://carbonkinnsinpj-production.up.railway.app",
+    "https://carbon-kinn-sin.vercel.app",
+]
+
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    'your-custom-header',
+]
+
+CORS_ALLOW_METHODS = list(default_methods) + [
+    'PUT',
+    'DELETE',
+]
 
 # Security settings
 SECURE_SSL_REDIRECT = False  # Disable if your web server handles HTTPS redirection
