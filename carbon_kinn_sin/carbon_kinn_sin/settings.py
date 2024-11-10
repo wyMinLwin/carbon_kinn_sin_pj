@@ -155,4 +155,8 @@ SIMPLE_JWT = {
 # CORS configuration
 CSRF_TRUSTED_ORIGINS = ['https://carbonkinnsinpj-production.up.railway.app']
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOWED_ORIGINS = [
+    "https://carbon-kinn-sin.vercel.app/",
+    "https://carbonkinnsinpj-production.up.railway.app",
+]
