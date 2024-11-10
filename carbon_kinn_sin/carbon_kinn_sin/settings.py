@@ -153,11 +153,17 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
 # CORS configuration
-CSRF_TRUSTED_ORIGINS = ['https://carbonkinnsinpj-production.up.railway.app', 'https://carbon-kinn-sin.vercel.app']
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
+
 CORS_ALLOWED_ORIGINS = [
     "https://carbon-kinn-sin.vercel.app",
     "https://carbonkinnsinpj-production.up.railway.app",
 ]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://carbonkinnsinpj-production.up.railway.app",
+    "https://carbon-kinn-sin.vercel.app",
+]
+
