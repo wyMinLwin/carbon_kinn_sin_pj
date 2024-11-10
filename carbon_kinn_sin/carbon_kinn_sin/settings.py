@@ -32,6 +32,7 @@ ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="*").split(",")
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,7 +42,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
     'rest_framework_simplejwt',
-    'corsheaders',
     'core',
     'auth_app',
     'contact_app',
