@@ -34,6 +34,8 @@ class User(AbstractBaseUser, PermissionsMixin):
         ],
         blank=True
     )
+    
+    
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
@@ -44,7 +46,12 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return f"{self.name} ({self.email})"
-
+    
+    
+    def collected_stickers(self):
+        """Returns the stickers collected by the user."""
+        from core.models import StickerCollection 
+        return StickerCollection.objects.filter(user=self)
     class Meta:
         verbose_name = 'User'
         verbose_name_plural = 'Users'
