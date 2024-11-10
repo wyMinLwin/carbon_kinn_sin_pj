@@ -25,7 +25,7 @@ class ContactMessageView(APIView):
             name = f"New Contact Message from {serializer.validated_data['name']}"
             message = serializer.validated_data['message']
             sender = serializer.validated_data['email']
-            recipient = 'morinehmuee@gmail.com' 
+            recipient = 'waiyanminlwin421@gmail.com' 
             
             send_email(name, message, sender, recipient)
 
@@ -43,7 +43,7 @@ class ReportCreateView(generics.CreateAPIView):
         image = f"New Report from {serializer.validated_data['image']}"
         comment = serializer.validated_data['comment']
         sender = serializer.validated_data['email']
-        recipient = 'morinehmuee@gmail.com'
+        recipient = 'waiyanminlwin421@gmail.com'
         
         send_email(image, comment, sender, recipient)
 
