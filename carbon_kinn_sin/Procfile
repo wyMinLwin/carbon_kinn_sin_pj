@@ -1,1 +1,1 @@
-web: python manage.py migrate && python manage.py collectstatic && gunicorn carbon_kinn_sin.wsgi:application
+web: python manage.py makemigrations python manage.py migrate && python manage.py collectstatic && gunicorn carbon_kinn_sin.wsgi:application
