@@ -24,9 +24,9 @@ class Migration(migrations.Migration):
             name='Sticker',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('code', models.CharField(max_length=20, unique=True)),
-                ('lat', models.FloatField()),
-                ('lng', models.FloatField()),
+                ('code', models.CharField(max_length=50, unique=True)),
+                ('lat', models.FloatField(null=True, blank=True)),
+                ('lng', models.FloatField(null=True, blank=True)),
                 ('sticker_type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='stickers', to='stickers.stickertype')),
             ],
         ),
