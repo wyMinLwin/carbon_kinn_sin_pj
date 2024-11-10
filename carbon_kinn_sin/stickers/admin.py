@@ -7,7 +7,7 @@ class StickerTypeAdmin(admin.ModelAdmin):
     list_filter = ('name',)
 
 class StickerAdmin(admin.ModelAdmin):
-    list_display = ('sticker_type', 'lat', 'lng','image')
+    list_display = ('name','sticker_type', 'lat', 'lng','image')
     search_fields = ('sticker_type__name',)
     list_filter = ('sticker_type',)
 
