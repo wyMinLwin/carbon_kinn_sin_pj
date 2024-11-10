@@ -141,16 +141,6 @@ SIMPLE_JWT = {
 # CORS configuration
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOWED_ORIGINS = [
-    "https://carbon-kinn-sin.vercel.app",
-    "https://carbonkinnsinpj-production.up.railway.app",
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    "https://carbonkinnsinpj-production.up.railway.app",
-    "https://carbon-kinn-sin.vercel.app",
-]
-
 # Security settings
 SECURE_SSL_REDIRECT = False  # Disable if your web server handles HTTPS redirection
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
