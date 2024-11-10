@@ -12,6 +12,7 @@ class Sticker(models.Model):
     image = models.ImageField(upload_to='core/media')  
     lat = models.FloatField()  # Latitude for geographical location
     lng = models.FloatField()  # Longitude for geographical location
+    special = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.code} - {self.sticker_type.name}"

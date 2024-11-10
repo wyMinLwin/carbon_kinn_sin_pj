@@ -18,7 +18,7 @@ class ContactMessage(models.Model):
 
 class Report(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='reports/', blank=True, null=True)  # Add image field
+    image = models.ImageField(upload_to='reports/', blank=True, null=True)  
     comment = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 

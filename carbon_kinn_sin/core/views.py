@@ -19,13 +19,34 @@ class StickerCollectionViewSet(viewsets.ModelViewSet):
             )
         serializer.save(user=user)
 
+# class LeaderboardViewSet(viewsets.ViewSet):
+#     permission_classes = [permissions.IsAuthenticated]
+
+#     def list(self, request):
+#         leaderboard = (
+#             StickerCollection.objects
+#             .values('user__id', 'user__name')
+#             .annotate(sticker_count=Count('sticker'))
+#             .order_by('-sticker_count')
+#         )
+        
+#         leaderboard_with_rewards = []
+#         for entry in leaderboard:
+#             sticker_count = entry['sticker_count']
+
+#             rewards = Reward.objects.filter(threshold__lte=sticker_count).values('name', 'description')
+#             entry['rewards'] = list(rewards)  
+#             leaderboard_with_rewards.append(entry)
+
+#         return Response({'leaderboard': leaderboard_with_rewards})
+
 class LeaderboardViewSet(viewsets.ViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
     def list(self, request):
         leaderboard = (
             StickerCollection.objects
-            .values('user__id', 'user__name')
+            .values('user__id', 'user__username')  
             .annotate(sticker_count=Count('sticker'))
             .order_by('-sticker_count')
         )
@@ -33,9 +54,8 @@ class LeaderboardViewSet(viewsets.ViewSet):
         leaderboard_with_rewards = []
         for entry in leaderboard:
             sticker_count = entry['sticker_count']
-
-            rewards = Reward.objects.filter(threshold__lte=sticker_count).values('name', 'description')
-            entry['rewards'] = list(rewards)  # 
+            rewards = Reward.objects.filter(threshold__lte=sticker_count).order_by('threshold', 'tier').values('name', 'description')
+            entry['rewards'] = list(rewards)  
             leaderboard_with_rewards.append(entry)
 
         return Response({'leaderboard': leaderboard_with_rewards})
