@@ -153,4 +153,6 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
 # CORS configuration
+CSRF_TRUSTED_ORIGINS = ['https://carbonkinnsinpj-production.up.railway.app']
+
 CORS_ALLOW_ALL_ORIGINS = True
